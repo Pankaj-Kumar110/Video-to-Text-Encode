@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Video Player - ASCII Art in Real-Time</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TEXT VIDEO PLAYER</h1>
+            <p class="subtitle">Watch videos rendered entirely in text characters</p>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="videoInput">Upload Video</label>
+                <input type="file" id="videoInput" accept="video/*">
+            </div>
+            
+            <div class="control-group">
+                <button id="webcamBtn">📷 Use Webcam</button>
+            </div>
+
+            <div class="control-group">
+                <label for="resolution">Resolution</label>
+                <input type="range" id="resolution" min="20" max="150" value="80">
+                <span id="resolutionValue">80</span>
+            </div>
+
+            <div class="control-group">
+                <label for="charSet">Character Set</label>
+                <select id="charSet">
+                    <option value="standard">Standard ASCII</option>
+                    <option value="blocks">Block Characters</option>
+                    <option value="braille">Braille (High Res)</option>
+                    <option value="minimal">Minimal</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>
+                    <input type="checkbox" id="colorMode" checked>
+                    Color Mode
+                </label>
+            </div>
+
+            <div class="control-group">
+                <label>
+                    <input type="checkbox" id="invertMode">
+                    Invert Colors
+                </label>
+            </div>
+        </div>
+
+        <div class="video-container">
+            <video id="videoElement" crossorigin="anonymous" playsinline></video>
+            <canvas id="hiddenCanvas"></canvas>
+        </div>
+
+        <div class="ascii-container">
+            <pre id="asciiOutput"></pre>
+        </div>
+
+        <div class="playback-controls">
+            <button id="playPauseBtn" disabled>▶ Play</button>
+            <button id="stopBtn" disabled>⏹ Stop</button>
+            <input type="range" id="seekBar" min="0" max="100" value="0" disabled>
+            <span id="timeDisplay">0:00 / 0:00</span>
+        </div>
+
+        <footer>
+            <p>Built with vanilla JavaScript | No frameworks, just pixels to text</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
